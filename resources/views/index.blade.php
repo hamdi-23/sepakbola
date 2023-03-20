@@ -18,7 +18,7 @@
             <a href="{{ route('klasemen') }}">Klasemen</a>
         </div>
     </aside>
-    <h1>ini adalah home</h1>
+    <h1>TAMPILAN INPUT KLUB</h1>
     <form action="{{ route('tambah.data') }}" method="POST">
         @csrf
         <div>

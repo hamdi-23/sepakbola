@@ -7,6 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>view klasemen</h1>
+    <aside>
+        <div>
+            <a href="{{ route('index') }}">Home</a>
+        </div>
+        <div>
+            <a href="{{ route('skor') }}">Skor</a>
+        </div>
+        <div>
+            <a href="{{ route('klasemen') }}">Klasemen</a>
+        </div>
+    </aside>
+    <h1>TAMPILAN KLASEMEN</h1>
+    <div class="card-body" style="padding: 25px">
+        <h3>Klasemen</h3>
+
+        <table border="1">
+            <tr>
+                <th>No</th>
+                <th>Klub</th>
+                <th>Ma</th>
+                <th>Me</th>
+                <th>S</th>
+                <th>K</th>
+                <th>GM</th>
+                <th>GK</th>
+                <th>Point</th>
+            </tr>
+            @foreach ($data as $k )
+
+            <tr>
+                <td>1</td>
+                <td>{{ $k->klub }}</td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+
+
 </body>
 </html>

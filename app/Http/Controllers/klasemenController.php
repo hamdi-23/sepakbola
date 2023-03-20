@@ -52,6 +52,7 @@ class klasemenController extends Controller
 
      public function klasemen()
      {
-        return view('klasemen');
+        $data = DB::table('klub')->get();
+        return view('klasemen', compact(['data']));
      }
 }
