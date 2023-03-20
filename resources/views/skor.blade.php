@@ -35,11 +35,11 @@
             <div>
                 <label for="">Skor : </label>
                 <input type="text" name="skor" id="skor">
-            </div>
+            </div><br>
             <button type="submit">Save</button>
         </form>
         <br>
-        <table border="1">
+        <table border="1" width="100%">
 
             <tr align="center">
                 <td>Klub :
@@ -58,38 +58,29 @@
     </div>
     <div class="card-body" style="padding: 25px">
         <h3>Multiple Input</h3>
-        <form action="{{ route('tambah.skor') }}" method="post">
+        <form action="" method="post">
             @csrf
-            <table border="2" id="table1">
-                <div>
-                    @foreach ($data as $d )
-                    <td>
-                        Klub: <input type="text" name="klub" id="klub" value="{{ $d->klub }}"><br>
-                        SKor: <input type="text" name="skor" id="skor" contenteditable="true" class="skor">
-                    </td>
-                    @endforeach
-                </div>
-                <br>
-                <div>
-                    <label for="">Skor : </label>
-                </div>
+            <table border="2" width='100%' id="table1">
+                <thead>
+                    <tr>
+                        <th>Klub</th>
+                        <th>Skor</th>
+                        <th>Aksi</th>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true" class="klub"></td>
+                        <td contenteditable="true" class="skor"></td>
+                        <td contenteditable="true"><button id="delete">hapus</button></td>
+                    </tr>
+                </thead>
             </table>
             <br>
-            <div>
-                <button class="btn btn-primary" id="add">Add</button>
-                <button type="submit" class="btn btn-success" id="save">Save</button>
-            </div>
+            <button class="btn" id="add">add</button>
+            <button class="btn" id="save">save</button>
         </form>
         <br>
     </div>
-    <div>
-        <div id="myDIV" class="header">
-            <h2>My To Do List</h2>
-            <input type="text" id="myInput" placeholder="Title...">
-            <span onclick="newElement()" class="addBtn">Add</span>
-        </div>
 
-    </div>
 
 </body>
 </html>
@@ -98,38 +89,14 @@
         let baris = 1
         $(document).on('click', '#add', function() {
             baris = baris + 1
+
             var html = "<tr id='baris'" + baris + ">"
-            html = " <td contenttable='true' class'skor'></td>"
+            html = " <td contenteditable='true' class='klub' class='klub'></td>"
+            html = " <td contenteditable='true' class='skor' class='skor'></td>"
+            html = " <td contenteditable='true'><button id='delete'></button></td>"
             html += "</tr>"
 
             $('#table1').append(html)
         })
     })
-</script>
-<script>
-    function newElement() {
-        var li = document.createElement("li");
-        var inputValue = document.getElementById("myInput").value;
-        var t = document.createTextNode(inputValue);
-        li.appendChild(t);
-        if (inputValue === '') {
-            alert("You must write something!");
-        } else {
-            document.getElementById("myUL").appendChild(li);
-        }
-        document.getElementById("myInput").value = "";
-
-        var span = document.createElement("SPAN");
-        var txt = document.createTextNode("\u00D7");
-        span.className = "close";
-        span.appendChild(txt);
-        li.appendChild(span);
-
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function() {
-                var div = this.parentElement;
-                div.style.display = "none";
-            }
-        }
-    }
 </script>

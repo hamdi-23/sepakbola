@@ -22,7 +22,7 @@
     <div class="card-body" style="padding: 25px">
         <h3>Klasemen</h3>
 
-        <table border="1">
+        <table border="1" width="100%">
             <tr>
                 <th>No</th>
                 <th>Klub</th>
@@ -34,11 +34,18 @@
                 <th>GK</th>
                 <th>Point</th>
             </tr>
-            @foreach ($data as $k )
 
-            <tr>
-                <td>1</td>
+            @foreach ($data as $index => $k )
+            <tr align="center">
+                <td>{{ $index+1 }}</td>
                 <td>{{ $k->klub }}</td>
+                <td>{{ $k->main }}</td>
+                <td>{{ $k->skor }}</td>
+                <td>{{ $k->skor }}</td>
+                <td>{{ $k->skor }}</td>
+                <td>{{ $k->gm }}</td>
+                <td>{{ $k->skor }}</td>
+                <td>{{ $k->skor }}</td>
             </tr>
             @endforeach
         </table>

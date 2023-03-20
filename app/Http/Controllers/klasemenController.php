@@ -52,7 +52,10 @@ class klasemenController extends Controller
 
      public function klasemen()
      {
-        $data = DB::table('klub')->get();
+
+        // $data = DB::table('klub')->get();
+        $data = DB::select('SELECT *, COUNT( * ) AS main,SUM(`skor`) AS gm,klub.`klub` FROM skor, klub WHERE klub.`id`=skor.`id_klub` GROUP BY `id_klub`
+');
         return view('klasemen', compact(['data']));
      }
 }
